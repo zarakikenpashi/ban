@@ -1,0 +1,28 @@
+@font-face {
+    font-display: swap;
+    font-family: TCCC-UnityText;
+    font-style: normal;
+    font-weight: 400;
+    src: url(../fonts/tccc-unitytext-regular.woff2) format("woff2")
+}
+
+@font-face {
+    font-display: swap;
+    font-family: TCCC-UnityText;
+    font-style: normal;
+    font-weight: 700;
+    src: url(../fonts/tccc-unitytext-bold.woff2) format("woff2")
+}
+
+@font-face {
+    font-display: block;
+    font-family: icomoon;
+    font-style: normal;
+    font-weight: 400;
+    src: url(../fonts/icomoon.woff) format("woff")
+}
+
+@font-face {
+    font-family: VideoJS;
+    src: url(../fonts/video-js.woff) format("woff")
+}
