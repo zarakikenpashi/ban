@@ -7,7 +7,259 @@
     <link rel="stylesheet" href="assets/css/app.css">
     <link rel="stylesheet" href="assets/css/footer.css">
     <link rel="stylesheet" href="assets/css/hero.css">
-    <link rel="stylesheet" href="assets/css/section.css">
+    <link rel="stylesheet" href="assets/css/controls.css">
+    
+    <style>
+        .hero-image {
+            height: 484px;
+            position: relative;
+            width: 100%;
+        }
+
+        @media screen and (min-width: 728px) {
+            .hero-image {
+                height:0;
+                padding-bottom: 66.4835164835%;
+            }
+        }
+
+        @media screen and (min-width: 1242px) {
+            .hero-image {
+                height:calc(100vh - 80px);
+                padding-bottom: 0;
+            }
+        }
+
+        .hero-image__picture {
+            background-position: top center;
+            background-repeat: no-repeat;
+            background-size: cover
+        }
+
+        .hero-image__picture,.hero-image__picture:after {
+            display: block;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%
+        }
+
+        .hero-image__picture:after {
+            background: linear-gradient(0deg, rgba(0, 0, 0, .2) 0, rgba(0, 0, 0, .2) 100%), linear-gradient(222deg, rgba(0, 0, 0, 0) 54.39%, rgba(0, 0, 0, .8) 77.27%);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            content: "";
+            position: absolute;
+            display: block;
+        }
+
+        .hero-image__picture img,.hero-image__picture source {
+            display: block;
+            height: 100%;
+            left: 0;
+            -o-object-fit: cover;
+            object-fit: cover;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            transition: opacity .25s ease;
+            width: 100%
+        }
+
+        .hero-image__picture.is-loaded img,.hero-image__picture.is-loaded source,.no-js .hero-image__picture img,.no-js .hero-image__picture source {
+            opacity: 1
+        }
+
+        .hero__headline {
+            text-wrap: balance;
+            bottom:0;
+            color: #fff;
+            font-size:clamp(1rem, 1.7rem + 0.02264* 100vw, 6rem);
+            font-weight: 400;
+            left: 25px;
+            letter-spacing: clamp(-.18rem,-4.5vw + 1rem,-1.88rem);
+            line-height: 1.1;
+            max-width: 789px;
+            position: absolute;
+            width: calc(100% - 50px);
+            z-index: 2;
+        }
+        
+        .intro {
+            margin-block-start:min(96px,4vw);
+            max-width: 1200px;
+            padding: 0 clamp(25px,4vw,65px);
+        }
+
+        @media screen and (min-width: 700px) {
+            .intro:not(.akwaba .intro) {
+                display:grid;
+                gap: min(48px,4vw);
+                grid-template-areas: "headline text" "image text";
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+            }
+        }
+        
+        @media screen and (min-width: 1200px) {
+            .intro {
+                margin-left:auto;
+                margin-right: auto
+            }
+        }
+
+        .intro__headline {
+            font-family: gtsectrafine,"serif";
+            font-size: clamp(2rem,1.7vw + 1.6rem,2.625rem);
+            font-weight: 400;
+            line-height: 1.19;
+            margin-block-start:0;
+        }
+
+        @media screen and (min-width: 700px) {
+            .intro__headline {
+                grid-area:headline;
+                letter-spacing: -.063rem;
+                margin-block-end:0;
+            }
+        }
+        
+
+        .intro__text {
+            font: 400 14px / 24px Noto-regional, Noto-latin, TCCC-UnityText, sans-serif;
+            margin-block: 0 12px;
+        }
+
+        .intro__text h2{
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 28px;
+            font-family: "Noto-regional", "Noto-latin", "TCCC-UnityText", sans-serif;
+            letter-spacing: 0;
+        }
+
+        @media screen and (min-width: 700px) {             
+            .intro__text:not(.intro__text.intro__text__reverse) {
+                grid-area:text
+            }
+        }
+
+        .intro__text p {
+            margin-block-start:0
+        }
+
+        .h-100 {
+            height: 100% !important;
+        }
+        .mw-100 {
+            max-width: 100% !important;
+        }
+        .w-100 {
+            width: 100% !important;
+        }
+
+        .theme-amber{
+            background: linear-gradient(210deg, rgba(255, 255, 255, 0) 33.97%, rgba(254, 229, 183, 0.24) 72.07%, rgba(254, 217, 160, 0.3) 89.41%);
+        }
+        .theme-slate{
+            background: linear-gradient(221deg, rgba(255, 255, 255, 0) 32.55%, rgba(238, 223, 242, 0.4) 77.4%, rgba(230, 209, 235, 0.5) 93.4%);
+        }
+
+        .background-video{
+            padding-top: clamp(4rem, 2.279rem + 0.04528* 100vw, 8.8rem);
+            padding-bottom: clamp(4rem, 2.279rem + 0.04528* 100vw, 8.8rem);
+        }
+        .bg-blur {
+            background: rgba(255, 255, 255, .75);
+            -webkit-backdrop-filter: blur(17px);
+            backdrop-filter: blur(17px);
+        }
+
+
+    @media (min-width: 1200px) {
+        .full-width-banner__background-image {
+            min-height: 70rem;
+        }
+
+        .full-width-banner__background-image .full-width-banner__inner-content {
+            padding-inline: 4.8rem;
+        }
+    }
+
+    .full-width-banner__background-image::after {
+        background: linear-gradient(0deg, rgba(0, 0, 0, .2) 0, rgba(0, 0, 0, .2) 100%), linear-gradient(222deg, rgba(0, 0, 0, 0) 54.39%, rgba(0, 0, 0, .8) 77.27%);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        content: "";
+        position: absolute;
+        display: block;
+    }
+    .full-width-banner__background-image{
+        background: url('./assets/images/our-history-banner.webp') no-repeat center center;
+        background-size: cover;
+        position: relative;
+    } 
+    
+    .full-width-banner__background-image{
+        min-height: 42rem;
+    }
+
+
+
+    .position-relative {
+        position: relative !important;
+    }
+    .full-width-banner__background-image .full-width-banner__inner-content {
+        position: absolute;
+        bottom: clamp(4rem, 2.279rem + 0.04528* 100vw, 8.8rem);
+        left: 0;
+        width: 100%;
+        z-index: 1;
+    }
+    .h1{
+        --f1-fs: clamp(.6rem, 2.74rem + 0.02264* 100vw, 6rem);
+        --h1-lh: clamp(4.8rem, 4.011rem + 0.02075* 100vw, 7rem);
+        --sm-3: clamp(1.2rem, 1.057rem + 0.00377* 100vw, 1.6rem);
+        font-size: var(--f1-fs);
+        line-height: var(--f1-lh);
+        margin-bottom: var(--sm-3);
+    }
+    @media (min-width: 768px) {
+    .container-fluid {
+        padding-left: 4.8rem;
+        padding-right: 4.8rem;
+    }
+}
+
+.container-fluid {
+    max-width: 1272px;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+}
+@media (min-width: 1200px) {
+    .offset-left{
+        margin-left: 8.33333333%;
+    }
+    .w-auto{
+        width: 50%;
+    }
+    .intro__text h2{
+        font-size: 24px;
+        line-height: 32px;
+    }
+    .intro__text p{
+        font-size: 16px;
+        line-height: 26px;
+    }
+}
+
+
+    </style>
 </head>
 <body class="with-hero-image">
     <header class="header">
@@ -199,7 +451,7 @@
                 <div class="full-width-banner__background-image">
                     <div class="full-width-banner__inner-content" style="color: #fff;">
                         <div class="container-fluid">
-                            <h2 style="font-size:clamp(2.5rem, 1.7rem + 0.02264* 100vw, 6rem);"><em>Shaped</em> by rich history</h2>
+                            <h2 style="font-size:clamp(1rem, 1.7rem + 0.02264* 100vw, 6rem);"><em>Shaped</em> by rich history</h2>
                             <div class="offset-left w-auto">
                                 <p>Founded in 1997, Diageo is a relatively young company. However, many of our brands are steeped in rich heritage, with some dating as far back as the 17th century.</p>
                                 <p>
@@ -269,6 +521,9 @@
                 </div>
         </footer>
     </main>
+
     <script src="assets/js/app.js"></script>
+
+
 </body>
 </html>
